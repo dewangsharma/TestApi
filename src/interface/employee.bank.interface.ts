@@ -3,6 +3,7 @@ export interface IDocuments {
     bank: BankAccount;
     persion: PensionAccount;
 }
+
 class BankAccount{
     title: string;
     accountholder: string;

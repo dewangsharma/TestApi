@@ -9,24 +9,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const employee_server_module_1 = require("../Modules/employee.server.module");
-exports.EmployeeController = {
-    GetAll() {
+const department_module_1 = require("../Modules/department.module");
+class DepartmentController {
+    static GetAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield employee_server_module_1.Employee.find();
-        });
-    },
-    // async GetOne(id: string ) {
-    //     return await Employee.findOne({'_id': id});
-    // },
-    GetOne(id) {
-        return employee_server_module_1.Employee.findOne({ '_id': id });
-    },
-    Create(emp) {
-        return __awaiter(this, void 0, void 0, function* () {
-            var newEmployee = new employee_server_module_1.Employee(emp);
-            return yield newEmployee.save();
+            return yield department_module_1.Department.find();
         });
     }
-};
-//# sourceMappingURL=employee.server.controller.js.map
+    ;
+    static GetOne(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield department_module_1.Department.find({ id: id });
+        });
+    }
+    ;
+    static Create(dep) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let newDep = new department_module_1.Department(dep);
+            return yield newDep.save();
+        });
+    }
+    ;
+}
+exports.default = DepartmentController;
+;
+//# sourceMappingURL=department.controller.js.map

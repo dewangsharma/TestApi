@@ -4,5 +4,4 @@ export interface IDepartment {
     contactno: string[];
     emails: string[];
     link: string[];
-    leader: string[]; // list of employee ObjectId
 }

@@ -9,24 +9,39 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const employee_server_module_1 = require("../Modules/employee.server.module");
+const employee_module_1 = require("../Modules/employee.module");
 exports.EmployeeController = {
+    // Get all employees
     GetAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield employee_server_module_1.Employee.find();
+            return yield employee_module_1.Employee.find();
         });
     },
     // async GetOne(id: string ) {
     //     return await Employee.findOne({'_id': id});
     // },
+    // Get single employee
     GetOne(id) {
-        return employee_server_module_1.Employee.findOne({ '_id': id });
+        return employee_module_1.Employee.findOne({ '_id': id });
     },
+    // Create new employee
     Create(emp) {
         return __awaiter(this, void 0, void 0, function* () {
-            var newEmployee = new employee_server_module_1.Employee(emp);
+            var newEmployee = new employee_module_1.Employee(emp);
             return yield newEmployee.save();
+        });
+    },
+    // Update new employee
+    Update(id, emp) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield employee_module_1.Employee.update({ '_id': id }, { $set: emp });
+        });
+    },
+    // Delete employee
+    Delete(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield employee_module_1.Employee.remove({ '_id': id });
         });
     }
 };
-//# sourceMappingURL=employee.server.controller.js.map
+//# sourceMappingURL=employee.controller.js.map

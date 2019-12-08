@@ -1,5 +1,5 @@
 import { Document, Schema, Model, model} from "mongoose";
-import { IEmployee } from "../Interface/employee.server.interface";
+import { IEmployee } from "../Interface/employee.interface";
 
 export interface IEmployeeModel extends IEmployee, Document {
     fullName(): string;

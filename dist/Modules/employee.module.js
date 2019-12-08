@@ -29,4 +29,4 @@ exports.EmployeeSchema.methods.fullName = function () {
     return (this.firstName.trim() + ' ' + this.middleName.trim() + ' ' + this.lastName.trim());
 };
 exports.Employee = mongoose_1.model("Employee", exports.EmployeeSchema);
-//# sourceMappingURL=employee.server.module.js.map
+//# sourceMappingURL=employee.module.js.map

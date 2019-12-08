@@ -2,7 +2,6 @@ import * as express from 'express';
 import * as employeeRoute from './Routes/employee.server.routes';
 import * as mongoose from 'mongoose';
 
-
 // TODO: database details, including path, auth in separate config file
 mongoose.connect('mongodb://localhost:27017/testHR', {useNewUrlParser: true, useUnifiedTopology:true}); //{ useMongoClient: true }
 

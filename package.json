@@ -1,8 +1,8 @@
 {
   "name": "testhr",
   "version": "0.0.1",
-  "description": "test hr",
-  "main": "app.js",
+  "description": "REST API",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +12,11 @@
     "express": "^4.17.1",
     "mongoose": "^5.7.9",
     "tsc": "^1.20150623.0"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "eslint": "^6.6.0",
+    "eslint-config-google": "^0.14.0"
   }
 }
