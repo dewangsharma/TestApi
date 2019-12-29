@@ -6,7 +6,7 @@ import { IEmployee } from '../Interface/employee.interface';
 export let EmployeeController = {
     // Get all employees
     async GetAll(){
-        return await Employee.find();
+        return await Employee.find();        
     },
     
     // async GetOne(id: string ) {
@@ -20,7 +20,9 @@ export let EmployeeController = {
 
     // Create new employee
     async Create(emp) {
+        // console.log(emp);
         var newEmployee = new Employee(emp);
+        console.log(newEmployee);
         return await newEmployee.save();
     },
 

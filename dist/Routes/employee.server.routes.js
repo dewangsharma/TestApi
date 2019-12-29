@@ -1,6 +1,7 @@
 "use strict";
 const express = require("express");
 const employee_controller_1 = require("../Controller/employee.controller");
+const Extension = require("../Extends/Extension");
 const router = express.Router();
 // GET. TODO: Get by index such as first 20, 40 , 60 
 const Get = function _getAllEmployee(req, res, next) {
@@ -18,12 +19,16 @@ const GetOne = function _getOneEmployee(req, res, next) {
 // TODO: correct req.body as input param for Create function
 const Post = function _postEmployee(req, res, next) {
     try {
-        for (let s of req) {
-            console.log(s);
-        }
-        // EmployeeController.Create(req.body).then((reply)=>{
-        //     res.status(200).send({message:Extension.Extension.String.Format( 'New Employee {0} created', reply._id)});
-        // }); 
+        // let dataLog = path.join(__filename, '../../log/data.txt');        
+        // if(fs.existsSync(dataLog)){
+        //     console.log('DATA LOG is available');
+        // }else{
+        //     console.log('DATA LOG is not available ');
+        // }
+        //writeFileSync(dataLog);
+        employee_controller_1.EmployeeController.Create(req.body).then((reply) => {
+            res.status(200).send({ message: Extension.Extension.String.Format('New Employee {0} created', reply._id) });
+        });
     }
     catch (err) {
         console.log(err);

@@ -1,6 +1,9 @@
 import * as express from 'express';
+import * as path from 'path';
+import { writeFileSync, readFileSync } from 'fs'
 import {EmployeeController} from '../Controller/employee.controller';
 import * as Extension from '../Extends/Extension';
+
 
 const router = express.Router();
 
@@ -20,8 +23,17 @@ const GetOne = function _getOneEmployee(req,res,next){
 
 // POST: Save employee 
 // TODO: correct req.body as input param for Create function
-const Post = function _postEmployee(req: Request,res,next){
+const Post = function _postEmployee(req,res,next){
     try{   
+        // let dataLog = path.join(__filename, '../../log/data.txt');        
+        // if(fs.existsSync(dataLog)){
+        //     console.log('DATA LOG is available');
+        // }else{
+        //     console.log('DATA LOG is not available ');
+            
+        // }
+        //writeFileSync(dataLog);
+        
         EmployeeController.Create(req.body).then((reply)=>{
             res.status(200).send({message:Extension.Extension.String.Format( 'New Employee {0} created', reply._id)});
         }); 

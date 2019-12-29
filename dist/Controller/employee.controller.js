@@ -27,7 +27,9 @@ exports.EmployeeController = {
     // Create new employee
     Create(emp) {
         return __awaiter(this, void 0, void 0, function* () {
+            // console.log(emp);
             var newEmployee = new employee_module_1.Employee(emp);
+            console.log(newEmployee);
             return yield newEmployee.save();
         });
     },
