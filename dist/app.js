@@ -19,16 +19,17 @@ class App {
         });
         // Todo: write log in trace file for each request via middleware
         // Todo: define authentication and authorization middleware
-        // Todo: define all routes here        
+        // Todo: define all routes here
         this.express.use('/', router);
-        this.express.use('/api/data', employeeRoute);
+        // employee route
+        this.express.use('/api/employee', employeeRoute);
     }
     ;
     config() {
         // support application/json type post data
         this.express.use(bodyParser.json());
         //support application/x-www-form-urlencoded post data
-        this.express.use(bodyParser.urlencoded({ extended: false }));
+        this.express.use(bodyParser.urlencoded({ extended: true }));
     }
 }
 exports.default = new App().express;

@@ -1,39 +1,31 @@
-import {Employee} from '../Modules/employee.module';
+import {Employee} from '../Models/employee.model';
 import {mongoose } from 'mongoose';
-import { IEmployee } from '../Interface/employee.interface';
-
 
 export let EmployeeController = {
     // Get all employees
-    async GetAll(){
+    async GetAll() {
         return await Employee.find();        
     },
     
-    // async GetOne(id: string ) {
-    //     return await Employee.findOne({'_id': id});
-    // },
-
     // Get single employee
-    GetOne(id:string): Promise<IEmployee>{
+    async GetOne(id){
         return Employee.findOne({'_id': id});
     },
 
     // Create new employee
     async Create(emp) {
-        // console.log(emp);
-        var newEmployee = new Employee(emp);
-        console.log(newEmployee);
+        let newEmployee = new Employee(emp);
         return await newEmployee.save();
     },
 
     // Update new employee
-    async Update(id: string, emp: IEmployee){       
+    async Update(id, emp){       
         return await Employee.update({'_id':id },{$set: emp});
     },
 
     // Delete employee
+    // Note: May be once if the employee is created then just do a soft delete
     async Delete(id: string){
         return await Employee.remove({'_id': id});
     }
-
 }

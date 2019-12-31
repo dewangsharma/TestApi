@@ -9,38 +9,28 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const employee_model_1 = require("../Models/employee.model");
-exports.EmployeeController = {
-    // Get all employees
-    GetAll() {
+const division_model_1 = require("../Models/division.model");
+class DivisionController {
+    static GetAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield employee_model_1.Employee.find();
-        });
-    },
-    // Get single employee
-    GetOne(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return employee_model_1.Employee.findOne({ '_id': id });
-        });
-    },
-    // Create new employee
-    Create(emp) {
-        return __awaiter(this, void 0, void 0, function* () {
-            let newEmployee = new employee_model_1.Employee(emp);
-            return yield newEmployee.save();
-        });
-    },
-    // Update new employee
-    Update(id, emp) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield employee_model_1.Employee.update({ '_id': id }, { $set: emp });
-        });
-    },
-    // Delete employee
-    Delete(id) {
-        return __awaiter(this, void 0, void 0, function* () {
-            return yield employee_model_1.Employee.remove({ '_id': id });
+            return yield division_model_1.Division.find();
         });
     }
-};
-//# sourceMappingURL=employee.controller.js.map
+    ;
+    static GetOne(id) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return yield division_model_1.Division.find({ id: id });
+        });
+    }
+    ;
+    static Create(dep) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let newDep = new division_model_1.Division(dep);
+            return yield newDep.save();
+        });
+    }
+    ;
+}
+exports.default = DivisionController;
+;
+//# sourceMappingURL=division.controller.js.map

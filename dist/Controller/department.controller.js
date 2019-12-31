@@ -9,23 +9,23 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const department_module_1 = require("../Modules/department.module");
+const division_model_1 = require("../Models/division.model");
 class DepartmentController {
     static GetAll() {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield department_module_1.Department.find();
+            return yield division_model_1.Department.find();
         });
     }
     ;
     static GetOne(id) {
         return __awaiter(this, void 0, void 0, function* () {
-            return yield department_module_1.Department.find({ id: id });
+            return yield division_model_1.Department.find({ id: id });
         });
     }
     ;
     static Create(dep) {
         return __awaiter(this, void 0, void 0, function* () {
-            let newDep = new department_module_1.Department(dep);
+            let newDep = new division_model_1.Department(dep);
             return yield newDep.save();
         });
     }
