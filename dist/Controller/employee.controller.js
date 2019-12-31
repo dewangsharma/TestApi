@@ -37,6 +37,7 @@ exports.EmployeeController = {
         });
     },
     // Delete employee
+    // Note: May be once if the employee is created then just do a soft delete
     Delete(id) {
         return __awaiter(this, void 0, void 0, function* () {
             return yield employee_model_1.Employee.remove({ '_id': id });

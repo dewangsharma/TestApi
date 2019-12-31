@@ -1,4 +1,5 @@
 "use strict";
+// TODO: Error handling
 const express = require("express");
 const employee_controller_1 = require("../Controller/employee.controller");
 const extension_1 = require("../Helpers/extension");
@@ -16,7 +17,6 @@ const GetOne = function _getOneEmployee(req, res, next) {
     });
 };
 // POST: Save employee 
-// TODO: correct req.body as input param for Create function
 const Post = function _postEmployee(req, res, next) {
     try {
         employee_controller_1.EmployeeController.Create(req.body).then((reply) => {
@@ -35,6 +35,7 @@ const Put = function _putEmployee(req, res, next) {
         });
     }
     catch (err) {
+        console.log(err);
     }
 };
 router.get('/', Get);
